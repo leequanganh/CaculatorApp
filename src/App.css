@@ -1,38 +1,163 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background-color: var(-- --bg-display);
 }
 
-.App-link {
-  color: #61dafb;
+.calc {
+  position: relative;
+  padding: 2.4rem;
+  border-radius: 0.8rem;
+  width: 60%;
+  border: gray 0.1rem solid;
+  box-shadow: -0.3rem 0 4.3rem 1.7rem var(--box-shadow);
+  overflow: hidden;
 }
 
-@keyframes App-logo-spin {
+.calc_listBtn {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calc_listBtn_item {
+  width: calc(100% / 3);
+  height: 6rem;
+}
+
+.calc_listBtn_item-equals {
+  position: absolute;
+  z-index: 4;
+  bottom: 0;
+  right: 0;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 100%;
+  overflow: hidden;
+  box-shadow: -0.33rem 0 4.3rem 1.7rem var(--box-shadow);
+}
+
+.calc_listBtn_item-equals .button_el {
+  border-color: transparent;
+}
+
+.calc_listBtn_item-delete .button_el {
+  background-color: var(--color-btn-delete);
+}
+
+.calc_listBtn_item-equals .button_el::after {
+  background-color: transparent;
+}
+
+.calc_display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--bg-display);
+  width: 100%;
+  height: 20vh;
+  border: 0.1rem solid transparent;
+}
+
+.calc_display_input,
+.calc_display_result {
+  background-color: transparent;
+  font-size: 5.2rem;
+  overflow: auto;
+  color: var(--text-color);
+  word-wrap: break-word;
+  max-height: 50%;
+}
+
+.calc_display_input::-webkit-scrollbar,
+.calc_display_result::-webkit-scrollbar {
+  height: 0.4rem;
+  margin-right: rem(10);
+  width: 0.4rem;
+}
+
+.calc_display_input::-webkit-scrollbar-thumb,
+.calc_display_result::-webkit-scrollbar-track-thumb {
+  background-color: var(--text-color);
+  border-radius: 0.4rem;
+}
+
+.pointer {
+  font-size: 5.2rem;
+  background-color: transparent;
+  animation: pointer 0.8s infinite linear;
+  color: var(--text-color);
+}
+
+.calc_history {
+  opacity: 0;
+  position: fixed;
+  z-index: -1;
+  right: 0;
+  top: 0;
+  transform: translateX(100%) translateY(-100%);
+  background-color: var(--bg-history);
+  width: 15vw;
+  height: 100%;
+  transition: all 0.4s linear;
+  overflow-y: auto;
+  padding: 1.2rem;
+}
+
+.calc_history-open {
+  z-index: 4;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(0) translateY(0);
+
+
+}
+
+.calc_history_item {
+  background-color: transparent;
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.buttonX {
+  background-color: transparent;
+  border: none;
+  width: fit-content;
+  align-self: flex-end;
+  font-size: 3.2rem;
+  cursor: pointer;
+  padding: 1.2rem;
+}
+
+@keyframes pointer {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
+
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 991px) {
+  * {
+    font-size: 6px;
+  }
+
+  .calc_history {
+    width: 32%;
+    height: 70%;
+    right: 50%;
+    top: 50%;
+  }
+
+  .calc_history-open {
+    transform: translateX(50%) translateY(-50%);
+    box-shadow: -0.3rem 0 4.3rem 1.7rem var(--box-shadow);
+    width: 70%;
   }
 }

@@ -1,13 +1,36 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* @import './components/Button/index.css'; */
+
+:root {
+  --bg-display: #f2f2f2;
+  --bg-color: #ffffff;
+  --bg-button: #f2f2f2;
+  --bg-button-hover: #ffffff;
+  --border-button: #1414141e;
+  --text-color: #141414;
+  --text-color-hover: #141414;
+  --box-shadow: #1414141e;
+  --color-btn-delete: #ff2929;
+  --bg-history: #f2f2f2;
+  --line-button: #141414;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.dark {
+  --bg-display: #333333;
+  --bg-color: #141414;
+  --bg-button: #141414;
+  --bg-button-hover: #ffffff;
+  --border-button: #ffffff;
+  --text-color: #ffffff;
+  --text-color-hover: #141414;
+  --box-shadow: #ffffff0b;
+
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  background-color: var(--bg-color);
+  font-size: 10px;
 }

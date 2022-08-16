@@ -1,0 +1,42 @@
+.button {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.button_el {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-button);
+    transition: all 0.4s;
+    cursor: pointer;
+    border: solid 0.1rem var(--border-button);
+    color: var(--text-color);
+
+}
+
+.button_el:hover {
+    background: var(--bg-button-hover);
+    color: var(--text-color-hover);
+}
+
+.button_el::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 0;
+    height: 0;
+    background-color: var(--line-button);
+    transition: all 0.4s linear;
+}
+
+.button_el:hover::after {
+    width: 100%;
+    height: 0.2rem;
+}
